@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Naledi💚 — You Are Loved 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050507;color:#fff;font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(600px at 20% 10%, rgba(0,230,118,0.18), transparent), radial-gradient(600px at 80% 90%, rgba(255,105,180,0.18), transparent), radial-gradient(400px at 50% 50%, rgba(255,255,255,0.05), transparent);pointer-events:none;z-index:0}
+.hearts{position:fixed;inset:0;pointer-events:none;z-index:1}
+.heart{position:absolute;animation:float 8s linear infinite;filter:blur(0.2px)}
+@keyframes float{0%{transform:translateY(110vh) rotate(0deg) scale(0.8);opacity:1}100%{transform:translateY(-10vh) rotate(180deg) scale(1.4);opacity:0}}
+.glow{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle, rgba(0,230,118,0.12), transparent 70%);pointer-events:none;z-index:0;animation:pulseGlow 4s infinite}
+@keyframes pulseGlow{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.2)}}
+.wrap{position:relative;z-index:2;max-width:480px;margin:0 auto;padding:18px 16px 40px}
+.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;margin:-18px -16px 18px;background:rgba(10,10,10,0.7);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.logo{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:1px}.logo span{color:#00E676}
+.badge{font-size:10px;background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.3);color:#00E676;padding:5px 10px;border-radius:20px}
+.hero{text-align:center;margin:10px 0 18px}
+.pics{display:flex;justify-content:center;gap:14px;margin:14px 0 18px;perspective:1000px}
+.pic{width:44%;max-width:168px;aspect-ratio:3/4;border-radius:24px;padding:5px;background:linear-gradient(145deg, #00E676, #ff8fab);box-shadow:0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;transform:rotateY(-8deg) rotateZ(-2deg);animation:floatPic 4s ease-in-out infinite;position:relative;overflow:hidden}
+.pic:nth-child(2){transform:rotateY(8deg) rotateZ(2deg);animation-delay:0.6s;margin-top:20px;background:linear-gradient(145deg, #ff8fab, #00E676)}
+@keyframes floatPic{0%,100%{transform:translateY(0) rotateY(-8deg) rotateZ(-2deg)}50%{transform:translateY(-8px) rotateY(-8deg) rotateZ(-2deg)}}
+.pic:nth-child(2){animation-name:floatPic2}
+@keyframes floatPic2{0%,100%{transform:translateY(0) rotateY(8deg) rotateZ(2deg)}50%{transform:translateY(-8px) rotateY(8deg) rotateZ(2deg)}}
+.pic img{width:100%;height:100%;object-fit:cover;border-radius:19px;border:3px solid #0a0a0a;display:block;filter:saturate(1.1) contrast(1.05)}
+.pic::after{content:'';position:absolute;inset:0;border-radius:19px;background:linear-gradient(180deg, rgba(255,255,255,0.15), transparent 30%);pointer-events:none}
+.name{font-family:'Great Vibes',cursive;font-size:46px;color:#ffb3c6;line-height:1;text-shadow:0 0 20px rgba(255,105,180,0.5)}
+.sub{font-size:11px;letter-spacing:3px;color:#00E676;margin:6px 0 14px;text-transform:uppercase;opacity:0.9}
+.music-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:14px;margin-bottom:16px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.music-card h4{font-size:12px;color:#ff8fab;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.song{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:14px;cursor:pointer;margin-bottom:8px;transition:0.3s;border:1px solid transparent}
+.song.idle{background:rgba(255,255,255,0.9);color:#111}
+.song.playing{background:#00E676;color:#111;box-shadow:0 8px 20px rgba(0,230,118,0.4);border-color:#00E676;transform:scale(1.02)}
+.song:last-child{margin:0}
+.song-left{display:flex;align-items:center;gap:10px}
+.song-icon{width:32px;height:32px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-size:12px}
+.song.playing .song-icon{background:#111;color:#00E676}
+.song-info b{font-size:13px;display:block}.song-info span{font-size:11px;opacity:0.7}
+.card{background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-radius:26px;padding:22px 18px;color:#111;box-shadow:0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1) inset;position:relative}
+.card::before{content:'💌';position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:48px;height:48px;background:#fff;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,0.15);font-size:18px;border:1px solid #eee}
+.letter{font-size:14.2px;line-height:1.8;color:#1a1a1a;white-space:pre-line;font-family:'Inter',sans-serif}
+.letter b{color:#000}
+.type-cursor::after{content:'|';animation:blink 1s infinite;color:#00E676}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.affirm{margin:16px 0;display:grid;gap:8px}
+.affirm div{background:linear-gradient(135deg, #f0fff0, #e8ffe8);border:1px solid #b8e6c1;padding:10px 12px;border-radius:14px;font-size:12.5px;color:#1a4d2e;display:flex;gap:8px;align-items:center}
+.btns{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{padding:15px 10px;border:none;border-radius:14px;font-weight:800;font-size:13.5px;cursor:pointer;transition:0.2s;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);transform:translateX(-100%);transition:0.6s}
+.btn:hover::before{transform:translateX(100%)}
+.btn-yes{background:linear-gradient(135deg, #00E676, #00c853);color:#111;box-shadow:0 10px 24px rgba(0,230,118,0.4)}
+.btn-no{background:#111;color:#fff}
+.btn:active{transform:scale(0.97)}
+.resp{display:none;margin-top:16px;padding:16px;border-radius:16px;text-align:center;font-size:13px;line-height:1.6}
+.resp.show{display:block;animation:pop 0.4s ease}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.footer{margin-top:18px;text-align:center;font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="hearts" id="hearts"></div>
+
+<div class="wrap">
+  <div class="top">
+    <div class="logo">For <span>Naledi</span> 💖</div>
+    <div class="badge">✨ For Wena</div>
+  </div>
+
+  <div class="hero">
+    <div class="pics">
+      <div class="pic"><img src="love1.jpeg"></div>
+      <div class="pic"><img src="love2.jpeg"></div>
+    </div>
+    <div class="name" id="name">Naledi</div>
+    <div class="sub">My 😍 — you are safe here</div>
+  </div>
+
+  <div class="music-card">
+    <h4>🎵 Tap to play — Sisi</h4>
+    <div class="song idle" id="song1Btn" onclick="playSong(1)">
+      <div class="song-left"><div class="song-icon" id="icon1">▶</div><div class="song-info"><b>For You</b><span>For intliziyo yakho, soft & safe</span></div></div>
+      <div style="font-size:18px">🌙</div>
+    </div>
+    <div class="song idle" id="song2Btn" onclick="playSong(2)">
+      <div class="song-left"><div class="song-icon" id="icon2">▶</div><div class="song-info"><b>For Us</b><span>May you feel loved again</span></div></div>
+      <div style="font-size:18px">💖</div>
+    </div>
+  </div>
+
+  <audio id="audio1" loop preload="auto"><source src="song1.aac" type="audio/mpeg"></audio>
+  <audio id="audio2" loop preload="auto"><source src="song2.mp4" type="audio/mpeg"></audio>
+
+  <div class="card">
+    <div class="letter" id="letter"></div>
+
+    <div class="affirm">
+      <div>🌸 <span>You are enough, even on your broken days.</span></div>
+      <div>💚 <span>What hurt you was not your fault.</span></div>
+      <div>✨ <span>You are allowed to heal slowly — Allow me to Help.</span></div>
+    </div>
+
+    <div class="btns" id="btns">
+      <button class="btn btn-yes" onclick="answer('ALLOW')">Yhaa We Can Try(Good) 💚</button>
+      <button class="btn btn-no" onclick="answer('SPACE')">Give Me Time(Bad) 🥺</button>
+    </div>
+
+    <div class="resp" id="resp"></div>
+    <div style="text-align:center;margin-top:12px;font-size:10px;color:#999">Built with care by Escobar • Only for Naledi • 2026</div>
+  </div>
+
+  <div class="footer">Made with 💚 for the girl who deserves soft love</div>
+</div>
+
+<script>
+// Hearts
+const hBox=document.getElementById('hearts');
+function heart(){const e=document.createElement('div');e.className='heart';e.textContent=['💚','💖','🌸','✨','🩹','😍'][Math.floor(Math.random()*6)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(12+Math.random()*18)+'px';e.style.animationDuration=(6+Math.random()*4)+'s';hBox.appendChild(e);setTimeout(()=>e.remove(),8000);}setInterval(heart,320);
+
+// Typewriter letter — more beautiful
+const fullLetter=`My dearest Nale,
+
+*For My Naledi ❤️*
+
+Naledi, I know you think you're single, but in my heart, you've never been single.
+
+Even with the distance between us, you are always close to me. 
+
+You are in my thoughts, in my heart, in every little moment of my day.
+
+I still remember back in high school, when you used to come see me.
+
+That's when I realized you really liked and cared for me. 
+
+Even though we only had a little time together, it meant everything.
+
+I never got the chance to show you how I truly feel.
+
+The signs were always there — you waiting for me after school just to walk with me, those were signs of love ❤️. 
+
+They say love is blind, and I guess I was blind at that time.
+
+I may not be perfect, but my feelings for you are real and honest.
+
+ You bring a smile to my heart without even trying.
+
+Please give me a chance to show you how much I love you, how much I care for you, and how much you mean to me.
+
+You are special, Naledi. More than you know.
+
+As your CRUSH, I'm asking you ukuba uvume.
+
+Please cela ungandophuli.
+
+— From Me Escobar.. For You Naledi💚`;
+
+const letterEl=document.getElementById('letter');
+let i=0;
+function type(){
+  if(i<fullLetter.length){
+    letterEl.textContent=fullLetter.slice(0,i+1);
+    letterEl.classList.add('type-cursor');
+    i++;
+    setTimeout(type, 18 + Math.random()*20);
+  }else{letterEl.classList.remove('type-cursor');}
+}
+setTimeout(type, 800);
+
+// Music - 2 songs tap
+const a1=document.getElementById('audio1');const a2=document.getElementById('audio2');
+const s1Btn=document.getElementById('song1Btn');const s2Btn=document.getElementById('song2Btn');
+const ic1=document.getElementById('icon1');const ic2=document.getElementById('icon2');
+let cur=0;
+function playSong(n){
+  if(n===1){
+    if(cur===1){a1.pause();s1Btn.className='song idle';ic1.textContent='▶';cur=0;return;}
+    a2.pause();s2Btn.className='song idle';ic2.textContent='▶';
+    a1.play().then(()=>{s1Btn.className='song playing';ic1.textContent='⏸';cur=1;}).catch(()=>{});
+  }else{
+    if(cur===2){a2.pause();s2Btn.className='song idle';ic2.textContent='▶';cur=0;return;}
+    a1.pause();s1Btn.className='song idle';ic1.textContent='▶';
+    a2.play().then(()=>{s2Btn.className='song playing';ic2.textContent='⏸';cur=2;}).catch(()=>{});
+  }
+}
+
+// WhatsApp answer
+const YOUR_WA="27783573506"; // CHANGE TO YOUR NUMBER
+function answer(t){
+  document.getElementById('btns').style.display='none';
+  const r=document.getElementById('resp');r.classList.add('show');
+  let msg="";
+  if(t==='ALLOW'){
+    r.style.background='linear-gradient(135deg,#e8ffe8,#d4ffd4)';r.style.border='1px solid #00E676';r.style.color='#111';
+    r.innerHTML=`<b style="font-size:16px">Thank you for trusting me 💚</b><br><br> I promise I won't break. Let's spend time. I'm here — not going anywhere.`;
+    msg=`💚 YES Ndiyavuma Masibe (Happy Muntu'wami) ${new Date().toLocaleString()}`;
+    for(let k=0;k<30;k++) setTimeout(heart,k*70);
+  }else{
+    r.style.background='linear-gradient(135deg,#fff8e1,#ffecb3)';r.style.border='1px solid #ffb300';r.style.color='#111';
+    r.innerHTML=`<b> I respect you 🥺</b><br><br>Take all the time you need, Naledi. I won't pressure you. When you're ready, I'll still be here.`;
+    msg=`🥺 I will answer you Tomorrow - ${new Date().toLocaleString()}`;
+  }
+  window.open(`https://wa.me/${YOUR_WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+</script>
+</body>
+</html>
